@@ -1,0 +1,19 @@
+﻿
+====================================================================================
+=================== Add library project to your solution============================
+=================== Use the code below to acess the traverse method ================
+=================== Change the file name and path if needed ========================
+====================================================================================
+
+DriveInfo[] allDrives = DriveInfo.GetDrives();
+
+            foreach (DriveInfo d in allDrives)
+            {
+                if (d.IsReady)
+                {
+                    var paths = DirectoryScanner.Traverse(d.Name);
+                    File.AppendAllLines(@"D:\SearchResult.txt", paths);
+                }
+            }
+
+====================================================================================
